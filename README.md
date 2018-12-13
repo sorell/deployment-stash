@@ -1,12 +1,10 @@
 # deployment-stash
-==================
 
 A set of installation scripts to quickly deploy some Linux stations I use.
 
 localbackup
 -----------
-A raspberry I have for preserving my on-site backups of multiple other computers and mobile devices.
-Deployment script awaits for the next installation :)
+A raspberry I have for preserving my on-site backups of multiple other computers and mobile devices. Critical files are in place, but the deployment script awaits for the next installation :)
 
 remotebackup
 ------------
