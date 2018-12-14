@@ -68,7 +68,7 @@ fifo=$(mktemp -u)
 
 ssh $SSH_OPTS -p ${SSH_TUN_PORT} -t root@localhost '
 	cleanup() {
-		echo "$HOSTNAME: Cleanup from $1"
+		echo "$HOSTNAME: Cleanup with exit code $1"
 		rm -fr '${fifo}'
 		echo "$HOSTNAME: Umount"
 		umount /mnt/localbackup
@@ -106,4 +106,6 @@ ssh $SSH_OPTS -p ${SSH_TUN_PORT} -t root@localhost '
 	wait $rspid
 	trap "" INT HUP TERM EXIT
 	cleanup 0
-'
+' 2>&1 | tee /tmp/sync_remote_last_run.log
+
+
